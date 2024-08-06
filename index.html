@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python Documentation</title>
+    <link rel="stylesheet" href="./styles.css"/>
+</head>
+<body>
+    <nav id="navbar">
+        <header>
+            <h1>Python Documentation</h1>
+        </header>
+        <ul>
+            <li><a href="#introduction" class="nav-link">Introduction</a></li>
+            <li><a href="#using_the_python_interpreter" class="nav-link">Using the Python Interpreter</a></li>
+            <li><a href="#control_flow_tools" class="nav-link">Control Flow Tools</a></li>
+            <li><a href="#data_structures" class="nav-link">Data Structures</a></li>
+            <li><a href="#reference" class="nav-link">Reference</a></li>
+        </ul>
+    </nav>
+    <main id="main-doc">
+        <section class="main-section" id="introduction">
+            <header>
+                <h1>Introduction</h1>
+            </header>
+            <div class="info">
+                <p>Python is an easy to learn, powerful programming language. It has efficient high-level data structures and a simple but effective approach to object-oriented programming. Python’s elegant syntax and dynamic typing, together with its interpreted nature, make it an ideal language for scripting and rapid application development in many areas on most platforms.</p>
+                <p>The Python interpreter and the extensive standard library are freely available in source or binary form for all major platforms from the Python web site, <a href="https://www.python.org/" target="_blank">https://www.python.org/</a>, and may be freely distributed. The same site also contains distributions of and pointers to many free third party Python modules, programs and tools, and additional documentation.</p>
+                <p>The Python interpreter is easily extended with new functions and data types implemented in C or C++ (or other languages callable from C). Python is also suitable as an extension language for customizable applications.</p>
+                <p>This tutorial introduces the reader informally to the basic concepts and features of the Python language and system. It helps to have a Python interpreter handy for hands-on experience, but all examples are self-contained, so the tutorial can be read off-line as well.</p>
+            </div>
+         </section>
+        <section class="main-section" id="using_the_python_interpreter">
+            <header>
+                <h1>Using the Python Interpreter</h1>
+            </header>
+            <div class="info">
+                <h2>Invoking the Interpreter</h2>
+                <ul>
+                    <li>The Python interpreter is usually installed as /usr/local/bin/python3.12 on those machines where it is available; putting /usr/local/bin in your Unix shell’s search path makes it possible to start it by typing the command:</li>
+                    <div class="code">
+                        <code>
+                            python3.12
+                        </code>
+                    </div>
+                    <li>
+                        On Windows machines where you have installed Python from the Microsoft Store, the python3.12 command will be available. If you have the py.exe launcher installed, you can use the py command. See Excursus: Setting environment variables for other ways to launch Python.
+                    </li>
+                    <li>
+                        On Windows machines where you have installed Python from the Microsoft Store, the python3.12 command will be available. If you have the py.exe launcher installed, you can use the py command. See Excursus: Setting environment variables for other ways to launch Python.
+                    </li>
+                </ul>
+                <h2>Interactive Mode</h2>
+                <p>
+                    When commands are read from a tty, the interpreter is said to be in interactive mode. In this mode it prompts for the next command with the primary prompt, usually three greater-than signs (>>>); for continuation lines it prompts with the secondary prompt, by default three dots (...). The interpreter prints a welcome message stating its version number and a copyright notice before printing the first prompt:
+                </p>
+                <div class="code">
+                    <code>
+                        $ python3.12<br/>
+                        Python 3.12 (default, April 4 2022, 09:25:04)<br/>
+                        [GCC 10.2.0] on linux<br/>
+                        Type "help", "copyright", "credits" or "license" for more information.<br/>
+                        >>><br/>
+                    </code>
+                </div>
+                <p>Continuation lines are needed when entering a multi-line construct. As an example, take a look at this if statement:</p>
+                <div class="code">
+                    <code>  
+                        >>>the_world_is_flat = True<br/>
+                        >>>if the_world_is_flat:<br/>
+                        ...    print("Be careful not to fall off!")<br/>
+                        Be careful not to fall off!<br/>
+                    </code>
+                </div>
+            </div>
+        </section>
+        <section class="main-section" id="control_flow_tools">
+            <header>
+                <h1>Control Flow Tools</h1>
+            </header>
+            <div class="info">
+                <h2>if Statements</h2>
+                <p>Perhaps the most well-known statement type is the if statement. For example:</p>
+                <div class="code">
+                    <code>
+                        x = int(input("Please enter an integer: "))<br/>
+                        <br/>
+                        if x < 0:<br/>
+                            x = 0<br/>
+                            print('Negative changed to zero')<br/>
+                        elif x == 0:<br/>
+                            print('Zero')<br/>
+                        elif x == 1:<br/>
+                            print('Single')<br/>
+                        else:<br/>
+                            print('More')<br/>
+    
+                    </code>
+                </div>
+                <ul>
+                    <li>
+                        There can be zero or more elif parts, and the else part is optional. The keyword ‘elif’ is short for ‘else if’, and is useful to avoid excessive indentation. An if … elif … elif … sequence is a substitute for the switch or case statements found in other languages.
+                    </li>
+                    <li>
+                        If you’re comparing the same value to several constants, or checking for specific types or attributes, you may also find the match statement useful.
+                    </li>
+                </ul>
+                <h2> for Statements</h2>
+                <ul>
+                    <li>The for statement in Python differs a bit from what you may be used to in C or Pascal. Rather than always iterating over an arithmetic progression of numbers (like in Pascal), or giving the user the ability to define both the iteration step and halting condition (as C), Python’s for statement iterates over the items of any sequence (a list or a string), in the order that they appear in the sequence.</li>
+                    <div class="code">
+                        <code>
+                                # Measure some strings:<br/>
+                                words = ['cat', 'window', 'defenestrate']<br/>
+                                for w in words:<br/>
+                                    print(w, len(w))<br/>
+                                    <br/>
+                            cat 3<br/>
+                            window 6<br/>
+                            defenestrate 12<br/>
+                        </code> 
+                    </div>
+                    <li>
+                        Code that modifies a collection while iterating over that same collection can be tricky to get right. Instead, it is usually more straight-forward to loop over a copy of the collection or to create a new collection:
+                    </li>
+                    <div class="code">
+                        <code>
+                            # Create a sample collection<br/>
+                            users = {'Hans': 'active', 'Éléonore': 'inactive', '景太郎': 'active'}<br/>
+                            <br/>
+                            # Strategy:  Iterate over a copy<br/>
+                            for user, status in users.copy().items():<br/>
+                                if status == 'inactive':<br/>
+                                    del users[user]<br/>
+                                    <br/>
+                            # Strategy:  Create a new collection<br/>
+                            active_users = {}<br/>
+                            for user, status in users.items():<br/>
+                                if status == 'active':<br/>
+                                    active_users[user] = status<br/>
+                        </code>
+                    </div>
+                </ul>
+            </div>
+        </section>
+        <section class="main-section" id="data_structures">
+            <header>
+                <h1>Data Structures</h1>
+            </header>
+            <div class="info"><h2>Lists</h2>
+                <p>The list data type has some more methods. Here are all of the methods of list objects:</p>
+                <div class="methods">
+                    <p class="method">
+                        list.</b>append</b>(x)
+                    </p>
+                    <p class="description">
+                        Add an item to the end of the list. Equivalent to a[len(a):] = [x].
+                    </p>
+                </div>
+                <div class="methods">
+                    <p class="method">
+                        list.</b>insert</b>(<i>i</i>,x)
+                    </p>
+                    <p class="description">Insert an item at a given position. The first argument is the index of the element before which to insert, so a.insert(0, x) inserts at the front of the list, and a.insert(len(a), x) is equivalent to a.append(x).</p>
+                </div>
+                <div class="methods">
+                    <p class="method">
+                        list.</b>remove</b>(x)
+                    </p>
+                    <p class="description">
+                        Remove the first item from the list whose value is equal to x. It raises a ValueError if there is no such item.
+                    </p>
+                </div>
+                <div class="methods">
+                    <p class="method">
+                        list.</b>clear</b>(x)
+                    </p>
+                    <p class="description">
+                        Remove all items from the list. Equivalent to del a[:].
+                    </p>
+                </div>
+                <div class="methods">
+                    <p class="method">
+                        list.</b>count</b>(x)
+                    </p>
+                    <p class="description">
+                        Return the number of times x appears in the list.
+                    </p>
+                </div>
+                <p>An example that uses most of the list methods:</p>
+                <div class="code">
+                    <code>
+                            fruits = ['orange', 'apple', 'pear', 'banana', 'kiwi', 'apple', 'banana']<br/>
+                            fruits.count('apple')<br/>
+                        2<br/>
+                            fruits.count('tangerine')<br/>
+                        0<br/>
+                            fruits.index('banana')<br/>
+                        3<br/>
+                            fruits.index('banana', 4)  # Find next banana starting at position 4<br/>
+                        6<br/>
+                            fruits.reverse()<br/>
+                            fruits<br/>
+                        ['banana', 'apple', 'kiwi', 'banana', 'pear', 'apple', 'orange']<br/>
+                            fruits.append('grape')<br/>
+                            fruits<br/>
+                        ['banana', 'apple', 'kiwi', 'banana', 'pear', 'apple', 'orange', 'grape']<br/>
+                            fruits.sort()<br/>
+                            fruits<br/>
+                        ['apple', 'apple', 'banana', 'banana', 'grape', 'kiwi', 'orange', 'pear']<br/>
+                            fruits.pop()<br/>
+                            'pear'<br/>
+                    </code>
+                </div>
+                <p>
+                    You might have noticed that methods like insert, remove or sort that only modify the list have no return value printed – they return the default None. [1] This is a design principle for all mutable data structures in Python.
+                </p>
+                <p>To read more on different data structures go to <a href="https://docs.python.org/3/tutorial/datastructures.html">python data structures.</a></p>
+            </div>
+        </section>
+        <section class="main-section" id="reference">
+            <header>
+                <h1>Reference</h1>
+            </header>
+            <div class="info">
+                <p>Documentation in this page was taken from <a href="https://docs.python.org/" class="refer" target="_blank">python docs</a>.</p>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
